@@ -4,7 +4,7 @@ This is a recurring project for <https://github.com/coverlet-coverage/coverlet/i
 
 ## The current conclusion
 
-- Calling 'Program.CreateHostBuilder(new string[0]).ConfigureWebHost(webBuilder => { }).Start();' (static constructor/constructor) from the unit test class base class results in 'Implement' project coverage of 0.
+- Calling `Program.CreateHostBuilder(new string[0]).ConfigureWebHost(webBuilder => { }).Start();` (static constructor/constructor) from the unit test class base class results in `Implement` project coverage of 0.
 - Calling (static constructor/constructor /TestInitialize) from the unit test class does not occur (see: [TestIWeekLogic.cs](UnitTest/TestIWeekLogic.cs))
 - If you are using Visual Studio 2019, all of the above can be identified normally
 
