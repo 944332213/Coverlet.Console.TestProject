@@ -1,8 +1,10 @@
 ﻿namespace UnitTest
 {
     using Microsoft.Extensions.Hosting;
+    using System.Diagnostics.CodeAnalysis;
     using WebApplication;
 
+    [ExcludeFromCodeCoverage]
     public abstract class BasicUnitTest
     {
         static BasicUnitTest()
@@ -20,7 +22,7 @@
 
         protected BasicUnitTest()
         {
-            Program.CreateHostBuilder(new string[0]).ConfigureWebHost(webBuilder => { }).Start();
+            //Program.CreateHostBuilder(new string[0]).ConfigureWebHost(webBuilder => { }).Start();
         }
     }
 }

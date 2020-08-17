@@ -12,9 +12,9 @@ This is a recurring project for <https://github.com/coverlet-coverage/coverlet/i
 
 ## Coverage result
 
-1. ![Visual Studio 2019](RunningResultScreenshot/Visual%20Studio%202019_20200815165800.png)
+1. ![Visual Studio 2019](RunningResultScreenshot/Visual%20Studio%202019_20200817171019.png)
 1. ![coverlet.console 1.7.2](RunningResultScreenshot/coverlet.console%201.7.2_20200817162652.png)
-    - This is the normal case of [coverlet.console 1.7.2](RunningResultScreenshot/coverlet.console%201.7.2_20200815165842.png)
+    - This is the normal case of [coverlet.console 1.7.2](RunningResultScreenshot/coverlet.console%201.7.2_20200817171153.png)
 
 ## Manual operation
 
