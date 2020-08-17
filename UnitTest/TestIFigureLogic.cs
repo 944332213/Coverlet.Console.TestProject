@@ -10,7 +10,7 @@ namespace UnitTest
     using WebApplication;
 
     [TestClass, ExcludeFromCodeCoverage]
-    public class TestIFigureLogic
+    public class TestIFigureLogic : BasicUnitTest
     {
         private IServiceProvider _serviceProvider;
 
@@ -28,7 +28,7 @@ namespace UnitTest
             Func<int, IEnumerable<string>> action = _serviceProvider.GetService<IFigureLogic>().GetCommonGraphic;
             {
                 var result = action(4)?.ToArray();
-                Assert.IsTrue(result?.Length > 1);
+                Assert.IsTrue(result?.Length > 0);
             }
         }
     }

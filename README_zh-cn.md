@@ -4,14 +4,17 @@
 
 ## 当前结论
 
-在该项目中我尽量采用了我遭遇项目相同并精简的方式编码，该项目显示 coverlet.console 完全正常，但在我遭遇的项目（它很庞大且不能公开）中仍然存在（类似该项目中 [Implement](Implement) coverlet.console 指示它的覆盖率为 0），我正在积极的寻找差异并试图重现这个过程。
+- 在单元测试类基类调用 `Program.CreateHostBuilder(new string[0]).ConfigureWebHost(webBuilder => { }).Start();` （静态构造函数/构造函数）均会导致 `Implement` 项目覆盖率为0.
+- 在单元测试类中调用（静态构造函数/构造函数/TestInitialize）则不会发生此情形（参见：[TestIWeekLogic.cs](UnitTest/TestIWeekLogic.cs)）
+- 若使用 Visual Studio 2019 ，则以上情况均能正常识别
 
 ----
 
 ## 覆盖率结果
 
 1. ![Visual Studio 2019](RunningResultScreenshot/Visual%20Studio%202019_20200815165800.png)
-1. ![coverlet.console 1.7.2](RunningResultScreenshot/coverlet.console%201.7.2_20200815165842.png)
+1. ![coverlet.console 1.7.2](RunningResultScreenshot/coverlet.console%201.7.2_20200817162652.png)
+    - 这是正常情形 [coverlet.console 1.7.2](RunningResultScreenshot/coverlet.console%201.7.2_20200815165842.png)
 
 ## 手动运行
 
