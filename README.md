@@ -9,6 +9,10 @@ This is a recurring project for <https://github.com/coverlet-coverage/coverlet/i
 - Based on the above situation, I think `Program.CreateHostBuilder(new string[0]).ConfigureWebHost(webBuilder => { }).Start();` will lead to the failure of test class coverage identification
 - If you are using Visual Studio 2019, all of the above can be identified normally
 
+## Solution
+
+- The problem `HostingAbstractionsHostBuilderExtensions.Start(this IHostBuilder hostBuilder);`, just change it to `IHostBuilder.Build();`.Using `Program.CreateHostBuilder(new string[0]).ConfigureWebHost(webBuilder => { }).Build();` replace `Program.CreateHostBuilder(new string[0]).ConfigureWebHost(webBuilder => { }).Start();`.I can't explain the deeper reason, if anyone knows, please let me know, I'd appreciate it
+
 ----
 
 ## Coverage result

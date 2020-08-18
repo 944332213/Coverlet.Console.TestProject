@@ -23,6 +23,7 @@
         protected BasicUnitTest()
         {
             Program.CreateHostBuilder(new string[0]).ConfigureWebHost(webBuilder => { }).Start();
+            //Program.CreateHostBuilder(new string[0]).ConfigureWebHost(webBuilder => { }).Build();
         }
     }
 }

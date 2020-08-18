@@ -9,6 +9,10 @@
 - 根据以上情况我认为 `Program.CreateHostBuilder(new string[0]).ConfigureWebHost(webBuilder => { }).Start();` 将导致测试类覆盖率识别失效
 - 若使用 Visual Studio 2019 ，则以上情况均能正常识别
 
+## 解决办法
+
+- 问题出在 `HostingAbstractionsHostBuilderExtensions.Start(this IHostBuilder hostBuilder);` ，只需要将其更改为 `IHostBuilder.Build();` 。 即使用 `Program.CreateHostBuilder(new string[0]).ConfigureWebHost(webBuilder => { }).Build();` 替换 `Program.CreateHostBuilder(new string[0]).ConfigureWebHost(webBuilder => { }).Start();` 。我无法解释更深层的原因，如果有人知道，请告诉我，不胜感激
+
 ----
 
 ## 覆盖率结果
