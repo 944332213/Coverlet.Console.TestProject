@@ -5,16 +5,22 @@
 ## 当前结论
 
 - 在单元测试类基类调用 `Program.CreateHostBuilder(new string[0]).ConfigureWebHost(webBuilder => { }).Start();` （静态构造函数/构造函数）均会导致 `Implement` 项目覆盖率为0.
-- 在单元测试类中调用（静态构造函数/构造函数/TestInitialize）则不会发生此情形（参见：[TestIWeekLogic.cs](UnitTest/TestIWeekLogic.cs)）
+- 在单元测试类中调用（静态构造函数/构造函数/TestInitialize）则不会发生此情形(但会导致该类的覆盖率识别失败，其他正常测试类识别正常)（参见：[TestIWeekLogic.cs](UnitTest/TestIWeekLogic.cs)）
+- 根据以上情况我认为 `Program.CreateHostBuilder(new string[0]).ConfigureWebHost(webBuilder => { }).Start();` 将导致测试类覆盖率识别失效
 - 若使用 Visual Studio 2019 ，则以上情况均能正常识别
 
 ----
 
 ## 覆盖率结果
 
-1. ![Visual Studio 2019](RunningResultScreenshot/Visual%20Studio%202019_20200817171019.png)
-1. ![coverlet.console 1.7.2](RunningResultScreenshot/coverlet.console%201.7.2_20200817162652.png)
-    - 这是正常情形 [coverlet.console 1.7.2](RunningResultScreenshot/coverlet.console%201.7.2_20200817171153.png)
+1. 这是 `Implement` 所有测试类失效情形 
+    ![coverlet.console 1.7.2](RunningResultScreenshot/coverlet.console%201.7.2_20200817162652.png)
+1. 这是仅`TestIWeekLogic`失效情形 
+    ![coverlet.console 1.7.2](RunningResultScreenshot/coverlet.console%201.7.2_20200817171153.png)
+1. 这是正常情形 
+    ![coverlet.console 1.7.2](RunningResultScreenshot/coverlet.console%201.7.2_20200818144324.png)
+1. 这是Visual Studio 2019 在情况`1`的对照 
+    ![Visual Studio 2019](RunningResultScreenshot/Visual%20Studio%202019_20200817171019.png)
 
 ## 手动运行
 

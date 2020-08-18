@@ -11,6 +11,7 @@
   <ItemGroup>
     <Content Include="$(MSBuildThisFileDirectory)coverlet.console 1.7.2_20200817162652.png" />
     <Content Include="$(MSBuildThisFileDirectory)coverlet.console 1.7.2_20200817171153.png" />
+    <Content Include="$(MSBuildThisFileDirectory)coverlet.console 1.7.2_20200818144324.png" />
     <Content Include="$(MSBuildThisFileDirectory)Visual Studio 2019_20200817171019.png" />
   </ItemGroup>
   <ItemGroup>

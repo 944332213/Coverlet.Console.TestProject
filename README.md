@@ -5,16 +5,22 @@ This is a recurring project for <https://github.com/coverlet-coverage/coverlet/i
 ## The current conclusion
 
 - Calling `Program.CreateHostBuilder(new string[0]).ConfigureWebHost(webBuilder => { }).Start();` (static constructor/constructor) from the unit test class base class results in `Implement` project coverage of 0.
-- Calling (static constructor/constructor /TestInitialize) from the unit test class does not occur (see: [TestIWeekLogic.cs](UnitTest/TestIWeekLogic.cs))
+- Calling (static constructor/constructor /TestInitialize) from the unit test class does not occur (However, it will cause coverage recognition of this class to fail, and other normal test classes to recognize normal) (see: [TestIWeekLogic.cs](UnitTest/TestIWeekLogic.cs))
+- Based on the above situation, I think `Program.CreateHostBuilder(new string[0]).ConfigureWebHost(webBuilder => { }).Start();` will lead to the failure of test class coverage identification
 - If you are using Visual Studio 2019, all of the above can be identified normally
 
 ----
 
 ## Coverage result
 
-1. ![Visual Studio 2019](RunningResultScreenshot/Visual%20Studio%202019_20200817171019.png)
-1. ![coverlet.console 1.7.2](RunningResultScreenshot/coverlet.console%201.7.2_20200817162652.png)
-    - This is the normal case of [coverlet.console 1.7.2](RunningResultScreenshot/coverlet.console%201.7.2_20200817171153.png)
+1. This is the `Implement` failure case for all test classes 
+    ![coverlet.console 1.7.2](RunningResultScreenshot/coverlet.console%201.7.2_20200817162652.png)
+1. This is a case of just `TestIWeekLogic` failing 
+    ![coverlet.console 1.7.2](RunningResultScreenshot/coverlet.console%201.7.2_20200817171153.png)
+1. This is the normal case of 
+    ![coverlet.console 1.7.2](RunningResultScreenshot/coverlet.console%201.7.2_20200818144324.png)
+1. This is a comparison of Visual Studio 2019 in case `1`  
+    ![Visual Studio 2019](RunningResultScreenshot/Visual%20Studio%202019_20200817171019.png)
 
 ## Manual operation
 

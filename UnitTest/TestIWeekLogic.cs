@@ -55,12 +55,16 @@
                 webBuilder.UseTestServer();
             }).Start().GetTestServer();
             _serviceProvider = _testServer.Services;
+
+            //var services = new ServiceCollection();
+            //services.AddLogic();
+            //_serviceProvider = services.BuildServiceProvider();
         }
 
         [TestCleanup]
         public void TestCleanup()
         {
-            _testServer.Dispose();
+            _testServer?.Dispose();
         }
 
         [TestMethod]
